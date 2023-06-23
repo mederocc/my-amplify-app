@@ -43,7 +43,7 @@ const Auth = () => {
         .catch((error) => console.log("error", error));
     }
 
-    tokens && console.log(tokens);
+    tokens && console.log("TOKENS: ", tokens);
     //  else {
     //   // Redirect to the Cognito Hosted UI
     //   window.location.href = cognitoUrl;
