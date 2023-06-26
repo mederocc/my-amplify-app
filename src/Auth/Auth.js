@@ -36,7 +36,7 @@ const Auth = () => {
         .catch((error) => console.log("error", error));
     }
 
-    tokens && console.log("TOKENS: ", tokens);
+    tokens && console.log("TOKENS ", tokens);
   }, [code, tokens]);
 
   if (!code) {
