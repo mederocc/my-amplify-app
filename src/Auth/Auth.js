@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { CognitoUserPool } from "amazon-cognito-identity-js";
 import queryString from "query-string";
 
 const Auth = () => {
@@ -11,14 +10,8 @@ const Auth = () => {
     const urlParams = queryString.parse(window.location.search);
     setCode(urlParams.code);
 
-    const credentials = `${process.env.REACT_APP_CLIENT_ID}:${process.env.REACT_APP_CLIENT_SECRET}`;
-    const encodedCredentials = btoa(credentials);
-    const authorization = `Basic ${encodedCredentials}`;
-    console.log(authorization);
-
     if (code && !tokens) {
       const myHeaders = new Headers();
-      myHeaders.append("Authorization", authorization);
       myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
       const urlencoded = new URLSearchParams();
@@ -44,10 +37,6 @@ const Auth = () => {
     }
 
     tokens && console.log("TOKENS: ", tokens);
-    //  else {
-    //   // Redirect to the Cognito Hosted UI
-    //   window.location.href = cognitoUrl;
-    // }
   }, [code, tokens]);
 
   if (!code) {
