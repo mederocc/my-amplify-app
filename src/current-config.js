@@ -14,10 +14,10 @@ export const configureAmplify = () => {
       // identityPoolRegion: "XX-XXXX-X",
 
       // OPTIONAL - Amazon Cognito User Pool ID
-      userPoolId: "sa-east-1_HkX8pnGkQ",
+      userPoolId: process.env.REACT_APP_USER_POOL_ID,
 
       // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-      userPoolWebClientId: "2igprj517m9argd6alibo722fl",
+      userPoolWebClientId: process.env.REACT_APP_CLIENT_ID,
 
       // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
       mandatorySignIn: true,
@@ -53,10 +53,10 @@ export const configureAmplify = () => {
 
       // OPTIONAL - Hosted UI configuration
       oauth: {
-        domain: "https://azureadcognit.auth.sa-east-1.amazoncognito.com",
+        domain: process.env.REACT_APP_COGNITO_DOMAIN,
         scope: ["email", "profile", "openid", "aws.cognito.signin.user.admin"],
-        redirectSignIn: "https://main.ddvgslkkkfjf8.amplifyapp.com/",
-        redirectSignOut: "https://main.ddvgslkkkfjf8.amplifyapp.com/",
+        redirectSignIn: process.env.REACT_APP_REDIRECT_URI,
+        redirectSignOut: process.env.REACT_APP_REDIRECT_URI,
         responseType: "code", // or 'token', note that REFRESH token will only be generated when the responseType is code
       },
     },
