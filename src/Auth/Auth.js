@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 
-const Auth = () => {
+const AuthComponent = () => {
   const [code, setCode] = useState(null);
   const [tokens, setTokens] = useState(null);
   const cognitoUrl = `${process.env.REACT_APP_COGNITO_DOMAIN}/oauth2/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=code&scope=email+openid+profile&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`;
@@ -50,4 +50,4 @@ const Auth = () => {
   return <div>Got tokens</div>;
 };
 
-export default Auth;
+export default AuthComponent;
